@@ -142,3 +142,20 @@ var mergeTwoLists = function(l1, l2){
     l2.next=mergeTwoLists(l2.next, l1);
     return l2;
 }
+
+//26 Remove Duplicates from Sorted Array
+var removeDuplicates = function(nums){
+    if(nums.length===0)return 0;
+    let i=0;
+    let j=1;
+    while(j<nums.length){
+        if(nums[i]!==nums[j]){
+            i++;
+            nums[i] = nums[j];
+            j++;
+        }else{
+            j++;
+        }
+    }
+    return i+1;
+}
