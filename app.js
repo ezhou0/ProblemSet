@@ -186,3 +186,14 @@ var strStr = function(haystack, needle){
     }
     return -1;
 }
+
+//35 Search Insert Position
+var searchInsert = function(nums, target){
+    if(target === 0) return 0;
+    if(nums[0]>target) return 0;
+    for(let i=0;i<nums.length;i++){
+        if(nums[i]===target) return i;
+        if(nums[i]<=target && nums[i+1]>=target) return i+1;
+        if(nums[i]<=target && i+1==nums.length) return nums.length;
+    }
+}
