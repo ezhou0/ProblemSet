@@ -87,3 +87,46 @@ var romanToInt = function(s){
         }
     }
 }
+
+//14 Longest Common Prefix
+var longestCommonPrefix = function(strs){
+    if(strs.length === 0) return '';
+    else{
+        let min = strs[0].length;
+        for(let i = 1; i<strs.length;i++){
+            if(min>strs[i].length){
+                min = strs[i].length;
+            }
+            for(let j = 0; j<min; j++){
+                if(strs[i][j] !== strs[i-1][j]){
+                    min = j;
+                    break;
+                }
+            }
+        }
+        return strs[0].substr(0,min);
+    }
+}
+
+//20 Valid Parenthesis
+var isValid = function(s){
+    const stack = [];
+    for(let i = 0; i<s.length; i+=1){
+        const top = stack[stack.length-1];
+        if(s[i]=== '(' || s[i]=== '{' || s[i]=== '['){
+            stack.push(s[i]);
+        }else if(s[i]=== ')' && top === '(' && stack.length !== 0){
+            stack.pop();
+        }
+        else if(s[i]=== ']' && top === '[' && stack.length !== 0){
+            stack.pop();
+        }
+        else if(s[i]=== '}' && top === '{' && stack.length !== 0){
+            stack.pop();
+        }
+        else{
+            return false;
+        }
+    }
+    return stack.length === 0;
+}
