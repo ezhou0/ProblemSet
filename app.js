@@ -215,3 +215,10 @@ var maxSubArray = function(nums){
     }
     return max_total;
 }
+//58 Length of Last Word
+var lengthOfLastWord = function(s){
+    words = s.trim().split(" ")
+    if(words.length === 0) return 0;
+    word = words[words.length-1].length;
+    return word;
+}
