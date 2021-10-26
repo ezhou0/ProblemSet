@@ -197,3 +197,21 @@ var searchInsert = function(nums, target){
         if(nums[i]<=target && i+1==nums.length) return nums.length;
     }
 }
+
+//53 Maximum Subarray
+var maxSubArray = function(nums){
+    if(nums.length === 1) return nums[0];
+    let max_total = -1;
+    let max_sofar = 0;
+
+    for(let i = 0; i<nums.length;i++){
+        max_sofar += nums[i];
+        if(max_total < max_sofar){
+            max_total = max_sofar;
+        }
+        if(max_total < 0){
+            max_sofar = 0;
+        }
+    }
+    return max_total;
+}
