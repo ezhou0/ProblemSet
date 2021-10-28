@@ -237,3 +237,5 @@ var plusOne = function(digits){
     if(carry) digits.unshift(carry);
     return digits;
 }
+
+//67 Add Binary
