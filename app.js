@@ -1,3 +1,5 @@
+const { resolveSoa } = require("dns");
+
 //1 Two Sum
 var twoSum = function(nums, target) {
     for(i=0; i<nums.length-1; i++){
@@ -326,5 +328,21 @@ var merge = function(nums1, m, nums2, n){
             i--
         }
     }
-    
+}
+
+//94 Binary Tree in order Traversal
+var inorderTraversal = function(root){
+    let stack = [];
+    let res = [];
+
+    while(root !== null || stack.length !==0){
+        while(root!==null){
+            stack.push(root);
+            root = root.left;
+        }
+        root = stack.pop();
+        res.push(root.val);
+        root = root.right;
+    }
+    return res;
 }
