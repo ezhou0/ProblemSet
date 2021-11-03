@@ -372,3 +372,11 @@ var isSymmetric = function(root) {
     helper(root, root);
     return res;
 };
+
+//104 maximum depth of binary tree 
+var maxDepth = function(root) {
+    if(!root) return null;
+    let max = Math.max(maxDepth(root.left), maxDepth(root.right));
+    return max + 1;
+
+};
