@@ -397,4 +397,17 @@ var sortedArrayToBST = function(nums) {
 
     return root;
 }
+//110 balanced binary tree
+const checkHeight = node => {
+    if(node === null) return -;
+    const left = checkHeight(node.left);
+    const right = checkHeight(node.right);
+    if(left === false || right === false || Math.abs(left - right) > 1) return false;
+
+    return Math.max(left, right) + 1;
+};
+var isBalanced = function(root){
+    if(root === null) return true;
+    return checkHeight(root) !== false;
+}
 
