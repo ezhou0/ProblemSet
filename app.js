@@ -39,6 +39,29 @@ var addTwoNumbers = function (l1, l2) {
     return result.next;
 };
 
+//3 length of longest substring
+var lengthOfLongestSubstring = function(s) {
+    res = 0;
+    let start = 0;
+    let end = 0;
+    
+    const chars = new Set();
+    
+    while(end < s.length){
+        if(!chars.has(s[end])){
+            chars.add(s[end]);
+            end++
+            res = Math.max(res, chars.size);
+        }
+        else{
+            chars.delete(s[start]);
+            start++
+        }
+        
+    }
+    return res
+};
+
 //9 Palindrome Number
 var isPalindrome = function(x){
     if(x<0){
