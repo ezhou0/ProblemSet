@@ -100,6 +100,36 @@ var findMedianSortedArrays = function(nums1, nums2) {
     return length%2 === 0 ? (arr[arr.length-1] + arr[arr.length-2])/2.0 : arr[arr.length-1];
 };
 
+//5 find longest substr
+var longestPalindrome = function(s) {
+    let ans = "";
+    let arr = findSubStrings(s)
+    arr.map(ss => {
+        if(ss === reverse(ss)){
+            if(ss.length > ans.length)
+                ans = ss;
+        }
+    })
+    return ans;
+    
+};
+
+const findSubStrings = (s) => {
+    let arr=[];
+    for(let i =0; i< s.length; i++){
+        for(let j = i+1; j < s.length + 1; j++){
+            arr.push(s.slice(i,j))
+        }
+    }
+    
+    return arr;
+    
+}
+
+const reverse = (s) => {
+    return s.split("").reverse().join("");
+}
+
 //9 Palindrome Number
 var isPalindrome = function(x){
     if(x<0){
