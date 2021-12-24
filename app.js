@@ -152,6 +152,23 @@ var convert = function (s, numRows) {
     return str
 };
 
+//7 reverse int
+
+let isNegative = false;
+    if (x < 0) {
+        isNegative = true;
+        x = -x;
+    }
+    let reverse = 0;
+    while (x > 0) {
+        reverse = reverse * 10 + x % 10;
+        x = parseInt(x / 10);
+    }
+    if (reverse >= Math.pow(2, 31) - 1 || reverse <= Math.pow(-2, 31)) {
+        return 0;
+    }
+    return isNegative ? -reverse : reverse;
+
 //9 Palindrome Number
 var isPalindrome = function(x){
     if(x<0){
