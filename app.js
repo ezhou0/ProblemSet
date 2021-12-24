@@ -130,6 +130,28 @@ const reverse = (s) => {
     return s.split("").reverse().join("");
 }
 
+//6 zigzag
+
+var convert = function (s, numRows) {
+    var str = '', bas = (numRows - 1) * 2;
+
+    if (numRows === 1) {
+        return s;
+    }
+    for (var row = 0; row < numRows; row++) {
+        var j = row;
+        while (j < s.length) {
+            var sec = j + bas - 2 * row
+            str += s[j];
+            if (row !== 0 && row !== numRows - 1 && sec < s.length) {
+                str += s[sec];
+            }
+            j += bas;
+        }
+    }
+    return str
+};
+
 //9 Palindrome Number
 var isPalindrome = function(x){
     if(x<0){
