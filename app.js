@@ -569,3 +569,22 @@ var isBalanced = function(root){
     return checkHeight(root) !== false;
 }
 
+//Codility pract test-- find smallest pos integer not included in array
+function findNumber(values) {
+  let result = [];
+
+  for (let i = 0; i < values.length; ++i) {
+    if (0 <= values[i]) {
+      result[values[i]] = true;
+    }
+  }
+
+  for (let i = 1; i <= result.length; ++i) {
+    if (undefined === result[i]) {
+      return i;
+    }
+  }
+
+  return 1
+}
+
