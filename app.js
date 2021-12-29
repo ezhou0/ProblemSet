@@ -312,6 +312,32 @@ var threeSum = function(nums) {
     return triplets
 };
 
+//16 3sumclosest
+var threeSumClosest = function(nums, target) {
+    let closestSum = Number.MAX_VALUE;
+ 
+    // Run three nested loops each loop
+    // for each element of triplet
+    for(let i = 0; i < nums.length ; i++)
+    {
+        for(let j = i + 1; j < nums.length; j++)
+        {
+            for(let k =j + 1; k < nums.length; k++)
+            {
+                 
+                // Update the closestSum
+                if (Math.abs(target - closestSum) >
+                    Math.abs(target - (nums[i] + nums[j] + nums[k])))
+                    closestSum = (nums[i] + nums[j] + nums[k]);
+            }
+        }
+    }
+     
+    // Return the closest sum found
+    return closestSum;
+    
+};
+
 //20 Valid Parenthesis
 var isValid = function(s){
     const stack = [];
