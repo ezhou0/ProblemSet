@@ -459,6 +459,23 @@ var mergeTwoLists = function(l1, l2){
     return l2;
 }
 
+//22 generate parenthesis
+
+var generateParenthesis = function(n) {
+    
+    let solution = [];
+    const generateCombo = (leftPcount, rightPcount, partial) =>{
+        if(leftPcount > rightPcount) return;
+        if(!leftPcount && !rightPcount) solution.push(partial);
+        
+        if(leftPcount > 0) generateCombo(leftPcount-1, rightPcount, partial + '(')
+        if(rightPcount > 0) generateCombo(leftPcount, rightPcount-1, partial + ')')
+        
+    }
+    generateCombo(n,n,"")
+    return solution
+};
+
 //26 Remove Duplicates from Sorted Array
 var removeDuplicates = function(nums){
     if(nums.length===0)return 0;
