@@ -404,6 +404,26 @@ var fourSum = function(nums, target) {
   return res;
 };
 
+//19 remove nth node from the end
+var removeNthFromEnd = function(head, n) {
+    dummy = new ListNode(0);
+    dummy.next = head;
+    left = dummy;
+    right = head;
+    
+    while(n > 0 && right){ //puts right in corrent spot n spaces away from end
+        right = right.next;
+        n-=1;
+    }
+    while(right){   //shifts both so left is right spot
+        right = right.next;
+        left = left.next;
+    }
+    left.next = left.next.next;
+    return dummy.next;
+    
+};
+
 //20 Valid Parenthesis
 var isValid = function(s){
     const stack = [];
