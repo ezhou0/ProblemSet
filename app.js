@@ -476,6 +476,32 @@ var generateParenthesis = function(n) {
     return solution
 };
 
+//24 swap node in pairs
+var swapPairs = function(head) {
+     let dummyList = new ListNode(null, head);
+
+    // Create a copy of the dummy list which we can traverse with
+    let current = dummyList;
+
+    // While there are 2 additional elements remaining
+    while (current.next && current.next.next) {
+        // Obtain the nodes to be swapped
+        const first = current.next;
+        const second = current.next.next;
+
+        // Swap the nodes
+        first.next = second.next;
+        second.next = first;
+        current.next = second;
+
+        // Move forward by 2 elements
+        current = current.next.next;
+    }
+
+    // Return the swapped LinkedList, removing the dummy head
+    return dummyList.next;
+};
+
 //26 Remove Duplicates from Sorted Array
 var removeDuplicates = function(nums){
     if(nums.length===0)return 0;
