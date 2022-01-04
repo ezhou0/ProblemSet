@@ -570,6 +570,60 @@ var divide = function(dividend, divisor) {
   return sign ? res : -res;
 };
 
+//33 search in a rotated sorted array
+     if(nums.length == 0 || nums == null) return -1;
+
+    let left = 0;
+    let right = nums.length-1;
+
+    while(left < right){
+        let mid = Math.floor((left+right)/2);
+        if(nums[mid]>nums[right]){
+            left = mid+1;
+        }else{
+            right = mid;
+        }
+    }
+
+    let pivot = left;
+    left = 0;
+    right = nums.length-1;
+
+    if(nums[pivot]<=target && target <= nums[right]){
+        left = pivot;
+    }else{
+        right = pivot;
+    }
+
+    while(left<=right){
+        let mid = Math.floor((left+right)/2);
+        //console.log(mid , nums[mid] , target);
+        if(nums[mid] == target){
+            return mid;
+        }
+        if(nums[mid]<target){
+            left = mid+1;
+        }else{
+            right = mid-1;
+        }
+    }
+    return -1;
+
+//34 find first and last position of element in sorted array
+var searchRange = function(nums, target) {
+    const find = (target, arr, left=0, right=arr.length) => {
+        while (left <= right) {
+            let mid = left + right >> 1
+            if (arr[mid] < target) left = mid + 1
+            else right = mid - 1
+        }
+        return left
+    } 
+    let Tleft = find(target, nums)
+    if (nums[Tleft] !== target) return [-1,-1]
+    return [Tleft, find(target+1, nums, Tleft) - 1]
+};
+
 
 //35 Search Insert Position
 var searchInsert = function(nums, target){
