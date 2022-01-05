@@ -695,6 +695,23 @@ var dfs = function (res, stack, index, len, candidates, target) {
   }
 };
 
+//45 jump game ii
+var jump = function(nums) {
+    let newMax = 0;
+    let jump = 0;
+    let oldMax = 0;
+    for (let i=0;i<nums.length-1;i++) {
+        // Keep track of the farthest jump
+        newMax = Math.max(newMax, i+nums[i]);
+        // When we get to the index where we had our previous farthest jump, we increase our jump count by 1
+        if (i == oldMax) {
+            jump++;
+            oldMax = newMax;
+        }
+    }
+    return jump;
+};
+
 //53 Maximum Subarray
 var maxSubArray = function(nums){
     if(nums.length === 1) return nums[0];
