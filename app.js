@@ -764,6 +764,30 @@ function backtrack(nums, res, acc=[]){
     }
 }
 
+//48 rotate image
+var rotate = function(matrix) {
+    let n = matrix.length;
+    let n2 = Math.floor(n/2);
+   
+    for(let i = 0; i < 2; i++){
+        for(let j = 0; j < n; j++){
+            swap(matrix, i, j , n-1-i, j)
+        }
+    }
+    
+    for(let i = 0; i< n; i++){
+        for(let j = i+1; j < n; j++){
+            swap(matrix, i, j , j ,i)
+        }
+    }
+};
+
+var swap = function(matrix, x1, y1, x2, y2){
+    let tmp = matrix[x1][y1];
+    matrix[x1][y1] = matrix[x2][y2];
+    matrix[x2][y2] = tmp
+}
+
 //53 Maximum Subarray
 var maxSubArray = function(nums){
     if(nums.length === 1) return nums[0];
