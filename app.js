@@ -788,6 +788,19 @@ var swap = function(matrix, x1, y1, x2, y2){
     matrix[x2][y2] = tmp
 }
 
+//49 group anagrams
+var groupAnagrams = function(strs) {
+    let hash = {};
+    strs.forEach(str => {
+        let letters = str.split("").sort();
+        hash[letters]  ? hash[letters].push(str) : hash[letters] = [str];
+    })
+    let keys = Object.keys(hash);
+    let values = keys.map(function(v) { return hash[v];})
+    return values;
+    
+};
+
 //53 Maximum Subarray
 var maxSubArray = function(nums){
     if(nums.length === 1) return nums[0];
