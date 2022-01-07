@@ -737,6 +737,33 @@ var dfs = function(res, arr, nums){
     }
 };
 
+//47 permutations ii (backtracking)
+var permuteUnique = function(nums) {
+    let res = [];
+    backtrack(nums, res);
+    return res;
+};
+
+function backtrack(nums, res, acc=[]){
+    if(nums.length ===0){
+        res.push(acc.slice());
+        return;
+    }
+    let prev;
+    for(let i = 0; i < nums.length; i++){
+        if(prev === nums[i]){
+            continue
+        };
+        prev = nums[i];
+        
+        const curr = nums.splice(i,1)[0];
+        acc.push(curr);
+        backtrack(nums, res, acc);
+        acc.pop();
+        nums.splice(i,0,curr)
+    }
+}
+
 //53 Maximum Subarray
 var maxSubArray = function(nums){
     if(nums.length === 1) return nums[0];
