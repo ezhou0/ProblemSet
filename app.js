@@ -1012,6 +1012,18 @@ var isBalanced = function(root){
     return checkHeight(root) !== false;
 }
 
+//226 invert binary tree
+var invertTree = function(root) {
+    if(!root) return null;
+    let tmp = new TreeNode();
+    
+    tmp.val = root.val;
+    tmp.left = invertTree(root.right);
+    tmp.right = invertTree(root.left);
+    return tmp
+    
+};
+
 //Codility pract test-- find smallest pos integer not included in array
 function findNumber(values) {
   let result = [];
