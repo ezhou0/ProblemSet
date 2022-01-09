@@ -974,6 +974,34 @@ var isSymmetric = function(root) {
     return res;
 };
 
+//102 binary tree level order traversal
+var levelOrder = function(root) {
+    const levels = [];
+    if(!root){
+        return levels;
+    }
+    
+    const queue = [root];
+    while(queue.length){
+        const len = queue.length;
+        const level = [];
+        
+        for(let i = 0; i < len; i++){
+            let node = queue.shift();
+            if(node.left){
+                queue.push(node.left);
+            }
+            if(node.right){
+                queue.push(node.right);
+            }
+            
+            level.push(node.val)
+        }
+        levels.push(level)
+    }
+    return levels;
+};
+
 //104 maximum depth of binary tree 
 var maxDepth = function(root) {
     if(!root) return null;
@@ -1023,6 +1051,39 @@ var invertTree = function(root) {
     return tmp
     
 };
+
+
+//572 subtree of another subtree
+var isSubtree = function(root, subRoot) {
+    const stack = [root];
+    
+    while(stack.length){
+        const node = stack.pop();
+        
+        if(node.val === subRoot.val && isSame(node, subRoot)){
+            return true;
+        }
+        
+        if(node.left){
+            stack.push(node.left);
+        }
+        if(node.right){
+            stack.push(node.right);
+        }
+    }
+    return false;
+};
+
+var isSame = function(s, t){
+    if(!s && !t){
+        return true;
+    }
+    if(!s || !t || s.val !== t.val){
+        return false;
+    }
+    
+    return isSame(s.left, t.left) && isSame(s.right, t.right);
+}
 
 //Codility pract test-- find smallest pos integer not included in array
 function findNumber(values) {
