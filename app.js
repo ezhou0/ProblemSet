@@ -1053,6 +1053,21 @@ var isBalanced = function(root){
     if(root === null) return true;
     return checkHeight(root) !== false;
 }
+
+//111 min depth of binary tree
+var minDepth = function(root) {
+    if(root === null) return 0;
+    if(root.left === null && root.right === null){
+        return 1;
+    }
+    if(root.right === null){
+        return minDepth(root.left)+1;
+    }
+    if(root.left === null){
+        return minDepth(root.right)+1;
+    }
+    return Math.min(minDepth(root.right), minDepth(root.left)) + 1;
+};
 //125 valid palindrome
 var isPalindrome = function(s) {
     var re = /[\W_]/g;
