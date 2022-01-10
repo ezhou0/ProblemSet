@@ -1118,6 +1118,24 @@ var isAnagram = function(s, t) {
     
     return str1 === str2
 };
+//404 sum of left leave
+var sumOfLeftLeaves = function(root) {
+    if(root === null) return 0;
+    if(root.left === null){
+        return sumOfLeftLeaves(root.right);
+    }
+    else{
+       let sum = 0;
+        if(root.left.left === null && root.left.right === null){
+            sum+=root.left.val;
+        }else{
+            sum+= sumOfLeftLeaves(root.left);
+        }
+        sum += sumOfLeftLeaves(root.right);
+        return sum;
+    }
+    
+};
 
 //572 subtree of another subtree
 var isSubtree = function(root, subRoot) {
