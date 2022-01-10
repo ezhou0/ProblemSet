@@ -1068,6 +1068,12 @@ var minDepth = function(root) {
     }
     return Math.min(minDepth(root.right), minDepth(root.left)) + 1;
 };
+//112 pathsum
+var hasPathSum = function(root, targetSum) {
+    if (!root) return false;
+    if (root.val === targetSum && !root.left && !root.right) return true;
+    return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val)
+};
 //125 valid palindrome
 var isPalindrome = function(s) {
     var re = /[\W_]/g;
