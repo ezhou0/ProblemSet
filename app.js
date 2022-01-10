@@ -1083,6 +1083,13 @@ var kthSmallest = function(root, k) {
     return values[k-1]
 };
 
+//242 valid anagram
+var isAnagram = function(s, t) {
+    let str1 = s.split("").sort().join("");
+    let str2 = t.split("").sort().join("");;
+    
+    return str1 === str2
+};
 
 //572 subtree of another subtree
 var isSubtree = function(root, subRoot) {
