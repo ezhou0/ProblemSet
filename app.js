@@ -1053,6 +1053,13 @@ var isBalanced = function(root){
     if(root === null) return true;
     return checkHeight(root) !== false;
 }
+//125 valid palindrome
+var isPalindrome = function(s) {
+    var re = /[\W_]/g;
+  var lowRegStr = s.toLowerCase().replace(re, '');
+  var reverseStr = lowRegStr.split('').reverse().join(''); 
+  return reverseStr === lowRegStr;
+};
 
 //226 invert binary tree
 var invertTree = function(root) {
