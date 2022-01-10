@@ -1066,6 +1066,23 @@ var invertTree = function(root) {
     
 };
 
+//230 kth smallest element in bst
+var kthSmallest = function(root, k) {
+   const values = []
+
+    // DFS function
+    function dfs(root, values) {
+        if(root.left) dfs(root.left, values)
+        values.push(root.val)
+        if(root.right) dfs(root.right, values)
+    }
+
+    // Run dfs and populate array of values
+    dfs(root, values)
+
+    return values[k-1]
+};
+
 
 //572 subtree of another subtree
 var isSubtree = function(root, subRoot) {
