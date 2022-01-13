@@ -1082,6 +1082,11 @@ var isPalindrome = function(s) {
   return reverseStr === lowRegStr;
 };
 
+//151 reverse words in a string
+var reverseWords = function(s) {
+    return s.trim().split(/\s+/).reverse().join(" ")
+};
+
 //226 invert binary tree
 var invertTree = function(root) {
     if(!root) return null;
