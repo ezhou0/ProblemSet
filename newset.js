@@ -38,5 +38,41 @@ var addTwoNumbers = function (l1, l2) {
 };
 
 4. 
+var findMedianSortedArrays = function(nums1, nums2) {
+    let arr = [];
+    let length = nums1.length + nums2.length;
+    
+    if(length === 1){
+        return nums1.length ===1 ? nums1[0] : nums2[0];
+    }
+    
+    let arr_len = length%2 === 0 ? (length/2 + 1) :         Math.ceil(length/2)
+    
+    let i = 0
+    let j = 0
+    
+    while(arr.length < arr_len){
+        if(i < nums1.length && j < nums2.length){
+            if(nums1[i] <= nums2[j]){
+                arr.push(nums1[i]);
+                i++;
+            }
+            else{
+                arr.push(nums2[j]);
+                j++;
+            }
+        }
+        else if(i>=num1.length){
+            arr.push(nums2[j]);
+            j++;
+        }
+        else{
+            arr.push(nums1[i]);
+            i++;
+        }
+    }
+    
+    return length%2 === 0 ? (arr[arr.length-1] + arr[arr.length-2])/2.0 : arr[arr.length-1];
+};
 
 5.
