@@ -44,3 +44,28 @@ var addTwoNumbers = function(l1, l2){
 
     return List;
 }
+
+//200 number of islands
+
+const numIslands = (grid) =>{
+    let countIslands = 0;
+
+    for(let rowIndex in grid){
+        for(let colIndex in grid[rowIndex]){
+            if(grid[rowIndex][colIndex] === '1'){
+                countIslands++;
+                teraform(parseInt(rowIndex),parseInt(colIndex),grid);
+            }
+        }
+    }
+}
+
+const teraform = (rowIn,colIn,grid)=>{
+    if(grid[rowIn] === undefined || grid[colIn] === undefined) return;
+
+    grid[rowIn][colIn] === '0';
+    teraform(rowIn+1, colIn, grid)
+    teraform(rowIn-1, colIn, grid)
+    teraform(rowIn, colIn+1, grid)
+    teraform(rowIn, colIn-1, grid)
+}
