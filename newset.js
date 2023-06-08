@@ -77,3 +77,18 @@ var reverse = function(x){
     return (solution>2**31-1) ? 0 : solution;
 };
 
+//22 generate parentheses
+var generateParenthesis = function (n){
+    const solution = [];
+
+    const generateCombo = (leftPCount, rightPCount, partial) =>{
+        if(leftPCount > rightPCount) return;
+        if(!leftPCount && !rightPCount) solution.push(partial);
+        if(leftPCount > 0) generateCombo(leftPCount-1,rightPCount, partial+'(')
+        if(rightPCount > 0) generateCombo(leftPCount,rightPCount-1, partial+')')
+
+    }
+
+    generateCombo(n,n,'');
+    return solution;
+}
