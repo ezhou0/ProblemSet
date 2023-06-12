@@ -92,3 +92,38 @@ var generateParenthesis = function (n){
     generateCombo(n,n,'');
     return solution;
 }
+
+//2 add two numbers
+
+    //non empty linked list
+    //two non-negative integers
+
+var addTwoNumbers = function(l1, l2){
+    let p1 = l1;
+    let p2 = l2;
+    let num1 = 0;
+    let num2 = 0;
+    let carry = 0;
+    let solution = new ListNode(0);
+    let current = solution;
+
+    while(p1 || p2){
+        num1 = (p1) ? p1.val : 0;
+        num2 = (p2) ? p2.val : 0;
+        if(num1 + num2 + carry > 9){
+            carry = 1;
+            current.next = new ListNode(num1+num2+carry-10);
+            current = current.next;
+        } else{
+            carry = 0;
+            current.next = new ListNode(num1+num2);
+            current = current.next;
+        }
+        if(p1) p1=p1.next;
+        if(p2) p2=p2.next;
+    }
+
+    if(carry) current.next = new ListNode(carry);
+    return solution.next;
+
+}
