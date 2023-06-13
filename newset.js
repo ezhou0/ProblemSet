@@ -127,3 +127,33 @@ var addTwoNumbers = function(l1, l2){
     return solution.next;
 
 }
+
+//394 decode string
+
+    //k = how many times we need to repeat
+    //[ start storing what i need to repeat
+    //] start repeating
+
+const decodeString = (s) => {
+    let multiply = [];
+    let tempMult = "";
+    let repeatStr = [];
+    let solution = '';
+
+    for(let char of s){
+        if(!isNaN(char)){
+            tempMult = `${tempMult}${char}`
+        }else if (char === '['){
+            multiply.push(tempMult);
+            tempMult = '';
+            repeatStr.push(solution);
+            solution = '';
+        }else if(char === ']'){
+            solution = repeatStr.pop() + solution.repeat(multiplay.pop());
+        }else{
+            solution += char;
+        }
+    }
+
+    return solution;
+}
