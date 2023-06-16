@@ -165,7 +165,7 @@ var threeSum = function(nums){
     nums.sort((a,b)=>{
         return a-b});
 
-    for(let [index, number] of nums.entries){
+    for(let [index, number] of nums.entries()){
         if(number > 0) return solution;
         if(number === nums[index-1]) continue;
 
