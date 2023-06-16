@@ -159,3 +159,39 @@ const decodeString = (s) => {
 }
 
 //15 3sum
+var threeSum = function(nums){
+    let [solution, left, right] = [[], 0 ,nums.length-1];
+    if(nums.length < 3) return solution;
+    nums.sort((a,b)=>{
+        return a-b});
+
+    for(let [index, number] of nums.entries){
+        if(number > 0) return solution;
+        if(number === nums[index-1]) continue;
+
+        left = index+1
+        right = nums.length-1;
+
+        let temp = 0;
+
+        while(left < right){
+            temp = number + nums[left] + nums[right];
+            if(temp === 0){
+                solution.push([number, nums[left], nums[right]])
+                left++;
+                right--;
+                 while(left < right && nums[left] == nums[left-1]){
+                    left++
+                 }
+                  while(left < right && nums[right] == nums[right+1]){
+                    right--
+                 }
+            }else if(temp > 0){
+                left++
+            }else if(temp < 0){
+                right--
+            }
+        }
+    }
+    return solution;
+}
