@@ -241,6 +241,18 @@ const getModifiedString = (word) => {
 }
 
 //455 assign cookies
-var findContentChildren = function(g,s){
-    
+var findContentChildren = function(g,s){ //sort kids by greed and size factor
+    let solution = 0; //how many kids fed
+    let greedIndex = 0;
+    g.sort((a,b) => {a-b})//increasing order
+    s.sort((a,b)=>{a-b});
+
+    for(let cookieSize of s){
+        if (cookieSize >= g[greedIndex]){
+            solution++;
+            greedIndex++;
+        }
+    }
+    return solution;
+
 }
