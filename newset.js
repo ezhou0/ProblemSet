@@ -259,5 +259,19 @@ var findContentChildren = function(g,s){ //sort kids by greed and size factor
 
 //104 maximumm depth of a binary tree
 var maxDepth = function(root){
-    
+    //breath first search, we start at top of tree and go search every node
+    let maxDepth = 0;
+
+    let BFS = (node, level) =>{
+        if (node === null) return; //exit condition
+
+        if(level > maxDepth){
+            maxDepth=level;
+        }
+        BFS(node.left, level+1);
+        BFS(node.right, level+1);
+    }
+
+    BFS(root, 1);
+    return maxDepth;
 }
