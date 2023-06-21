@@ -196,6 +196,8 @@ var threeSum = function(nums){
     return solution;
 }
 
+//5 Longest Palindromic Substring
+
 const longestPalindrome = (s) => {
     if(s.length< 1) return s;
 
@@ -236,4 +238,9 @@ const getModifiedString = (word) => {
         newHashWord += '#';
     }
     return newHashWord;
+}
+
+//455 assign cookies
+var findContentChildren = function(g,s){
+    
 }
