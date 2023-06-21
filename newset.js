@@ -256,3 +256,8 @@ var findContentChildren = function(g,s){ //sort kids by greed and size factor
     return solution;
 
 }
+
+//104 maximumm depth of a binary tree
+var maxDepth = function(root){
+    
+}
