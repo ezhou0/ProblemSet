@@ -325,3 +325,5 @@ var productExceptSelf = function(nums){
 
     return output;
 }
+
+//20 valid parentheses
